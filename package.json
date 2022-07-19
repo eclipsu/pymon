@@ -2,5 +2,24 @@
   "dependencies": {
     "@ptkdev/node-discord-bot-boilerplate": "^1.0.20210412",
     "dotenv": "^16.0.1"
-  }
+  },
+  "name": "commando-bot",
+  "description": "```env\r TOKEN=TOKEN GOES HERE\r ```",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eclipsu/pymon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eclipsu/pymon/issues"
+  },
+  "homepage": "https://github.com/Eclipsu/pymon#readme"
 }
