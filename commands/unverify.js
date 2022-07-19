@@ -6,12 +6,13 @@ module.exports.run = async (cleint, msg, args) => {
     return msg.guild.roles.cache.find((r) => r.id === role).name;
   });
   const numericRole = rolesOfUser.filter((role) => !isNaN(role));
+
   if (numericRole.length <= 0) {
-    const exampleEmbed = await new MessageEmbed().setColor("#ff0000").setTitle("Failed \\❌ ").setDescription(`You're not verified. `).setTimestamp();
+    const exampleEmbed = await new MessageEmbed().setColor("#ff0000").setTitle("Failed \\❌ ").setDescription(`You're not verified with a UID. `).setTimestamp();
 
     return await msg.channel.send(exampleEmbed);
   }
-  msg.guild.roles.cache.find((r) => r.name === numericRole[0]).delete();
+  await msg.guild.roles.cache.find((r) => r.name === numericRole[0]).delete();
   // msg.guild.roles.cache.find((r) => r.id === "871770395081048074").delete();
   const exampleEmbed = new MessageEmbed().setColor("#ff0000").setTitle("Unverified \\❌ ").setDescription(`Your verification id: ${numericRole[0]} was removed `).setTimestamp();
 
