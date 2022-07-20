@@ -34,8 +34,12 @@ module.exports.run = async (client, msg, args) => {
 
   // Chekcs if the argument is "visitor", which assigns the user with guest role instead of UUID and Travelers role
   else if (args[0] === "visitor") {
+    try {
+      const travelersRole = msg.guild.roles.cache.get(travelersID);
+      msg.member.roles.remove(travelersRole);
+    } catch (err) {}
     msg.member.roles.add(guestID);
-    const exampleEmbed = await new MessageEmbed().setColor("#2E2EAC").setTitle("Verified \\✅").setDescription(`verified as a visitor \n `).setTimestamp();
+    const exampleEmbed = await new MessageEmbed().setColor("#2E2EAC").setTitle("Verified \\✅").setDescription(`Verified as a visitor. \n `).setTimestamp();
     return await msg.channel.send(exampleEmbed);
   }
   // checks if the UID user provided is valid uid
