@@ -34,6 +34,11 @@ module.exports.run = async (client, msg, args) => {
 
   // Chekcs if the argument is "visitor", which assigns the user with guest role instead of UUID and Travelers role
   else if (args[0] === "visitor") {
+    if (roles.some((role) => role === guestID)) {
+      const exampleEmbed = await new MessageEmbed().setColor("#ff0000").setTitle("Failed \\❌ ").setDescription(`You're already verified. `).setTimestamp();
+      return await msg.channel.send(exampleEmbed);
+    }
+
     try {
       const travelersRole = msg.guild.roles.cache.get(travelersID);
       msg.member.roles.remove(travelersRole);
