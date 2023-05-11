@@ -21,6 +21,7 @@ client.on("ready", () => {
 
 // On message receive
 client.on("message", async (msg) => {
+    if (msg.author.bot) return;
   // Calls in command function if message starts ith prefix and if commands exists
   if (msg.content.startsWith(process.env.PREFIX)) {
     const args = msg.content.slice(process.env.PREFIX.length).trim().split(/ +/g);
